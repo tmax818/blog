@@ -200,6 +200,7 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 ## [6 CRUDit Where CRUDit Is Due](https://guides.rubyonrails.org/getting_started.html#crudit-where-crudit-is-due)
 
 - Almost all web apps involve CRUD!!
+- 6 is long, Bro!
 
 ### [6.1 Showing a Single Article](https://guides.rubyonrails.org/getting_started.html#showing-a-single-article)
 
@@ -263,24 +264,51 @@ Nice!
 You learn more: [routing]
 
 
+### [6.3 Creating a New Article](https://guides.rubyonrails.org/getting_started.html#creating-a-new-article)
+
+>Typically, in web applications, creating a new resource is a multi-step process. 
+- First, the user requests a form to fill out. Then, 
+- Second, the user submits the form. 
+- If there are no errors, then the resource is created and some kind of confirmation is displayed. 
+- Else, the form is redisplayed with error messages, and the process is repeated.
+In a Rails application, these steps are conventionally handled by a controller's `new` and `create` actions.
+
+- [add `new` and `create`](app/controllers/articles_controller.rb)
+
+```ruby
+  def new
+    @article = Article.new
+  end
+```
 
 
+>The `new` action instantiates a new article, but does not save it. This article will be used in the view when building the form. By default, the new action will render [new view](app/views/articles/new.html.erb)
+
+```ruby
+  def create
+    @article = Article.new(title: "...", body: "...")
+
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+```
+
+>The `create` action instantiates a new article with values for the title and body, and attempts to save it. If the article is saved successfully, the action redirects the browser to the article's page at "http://localhost:3000/articles/#{@article.id}". Else, the action re-displays the form by rendering [new](app/views/articles/new.html.erb). The title and body here are dummy values. After we create the form, we will come back and change these.
+
+>[redirect_to] will cause the browser to make a new request, whereas [render] renders the specified view for the current request. **It is important to use [redirect_to] after mutating the database or application state.** Otherwise, if the user refreshes the page, the browser will make the same request, and the mutation will be repeated.
 
 
+- [create the new form using *form builder*](app/views/articles/new.html.erb)
 
 
+- [form_with]
+- [label]
+- [text_field]
 
-
-
-
-
-
-
-
-
-
-
-
+You learn more: [Action View Form Helpers]
 
 
 
@@ -301,3 +329,9 @@ You learn more: [routing]
 [resources]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources
 [link_to]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to
 [routing]: https://guides.rubyonrails.org/routing.html
+[redirect_to]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionController/Redirecting.html#method-i-redirect_to
+[render]: https://api.rubyonrails.org/v6.1.2.1/classes/AbstractController/Rendering.html#method-i-render
+[form_with]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormHelper.html#method-i-form_with
+[label]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormBuilder.html#method-i-label
+[text_field]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field
+[Action View Form Helpers]: https://guides.rubyonrails.org/form_helpers.html
