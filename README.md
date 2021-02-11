@@ -57,7 +57,7 @@ $ rails new .
 |[`README.md`](.)|This is a brief instruction manual for your application. You should edit this file to tell others what your application does, how to set it up, and so on.|
 
 
-
+## [4 Hello, Rails!](https://guides.rubyonrails.org/getting_started.html#hello-rails-bang)
 
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
