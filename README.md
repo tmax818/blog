@@ -197,6 +197,9 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 1. The server sends a response containing the HTML back to the browser.
 
 
+## [6 CRUDit Where CRUDit Is Due](https://guides.rubyonrails.org/getting_started.html#crudit-where-crudit-is-due)
+
+
 
 
 
