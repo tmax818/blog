@@ -59,6 +59,49 @@ $ rails new .
 
 ## [4 Hello, Rails!](https://guides.rubyonrails.org/getting_started.html#hello-rails-bang)
 
+### [4.1 Starting up the Web Server](https://guides.rubyonrails.org/getting_started.html#starting-up-the-web-server)
+
+- run:
+
+```bash
+$ rails s
+```
+
+### [4.2 Say "Hello", Rails](https://guides.rubyonrails.org/getting_started.html#say-hello-rails)
+
+- You need:
+  - [route](config/routes.rb) 
+    -  maps a request to a controller action.
+    -  rules written in a Ruby DSL
+  - [controller and an action](app/controllers/application_controller.rb) 
+    - handles the request and prepares the data.
+    - Ruby classes and public methods are actions
+  - [view](app/views/notes.md) 
+    - displays data in desired format. 
+    - templates written in Ruby and HTML
+
+- [create the route](config/routes.rb)
+- Generate the controller:
+
+```bash
+$ rails generate controller Articles index --skip-routes
+```
+
+- [Most important](app/controllers/articles_controller.rb)
+
+>The index action is empty. When an action does not explicitly render a view (or otherwise trigger an HTTP response), Rails will automatically render a view that matches the name of the controller and action. Convention Over Configuration! Views are located in the [app/views](app/views/notes.md) directory. So the index action will render [app/views/articles/index.html.erb](app/views/articles/index.html.erb) by default.
+
+- [change the content](app/views/articles/index.html.erb)
+- [visit](http://localhost:3000/articles)
+
+### [4.3 Setting the Application Home Page](https://guides.rubyonrails.org/getting_started.html#setting-the-application-home-page)
+
+- [add root route](config/routes.rb)
+
+- learn more about [routing]
+
+
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
@@ -68,4 +111,4 @@ $ rails new .
 [Yarn]: https://classic.yarnpkg.com/en/docs/install
 [Configuring Rails Applications]: https://guides.rubyonrails.org/configuring.html
 [Rack website]: https://rack.github.io/
-
+[routing]: https://guides.rubyonrails.org/routing.html
