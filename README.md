@@ -27,6 +27,8 @@ These are my notes for the [Rails Guides](https://guides.rubyonrails.org/index.h
 2. Convention Over Configuration
 >"Rails has opinions about the best way to do many things in a web application, and defaults to this set of conventions, rather than require that you specify minutiae through endless configuration files."
 
+## [3 Creating a New Rails Project](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project)
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
