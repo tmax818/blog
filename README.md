@@ -50,7 +50,7 @@ $ rails new .
 
 |File/Folder|Purpose|
 |---|---|
-|[`app/`](app)|Contains the controllers, models, views, helpers, mailers, channels, jobs, and assets for your application. You'll focus on this folder for the remainder of this guide.|
+|[`app/`](app/notes.md)|Contains the controllers, models, views, helpers, mailers, channels, jobs, and assets for your application. You'll focus on this folder for the remainder of this guide.|
 |`README.md`|This is a brief instruction manual for your application. You should edit this file to tell others what your application does, how to set it up, and so on.|
 
 
