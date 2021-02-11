@@ -144,6 +144,93 @@ $ rails db:migrate
 You learn more about [Active Record Migrations]. "Now we can interact with the table using our model."
 
 
+### [5.3 Using a Model to Interact with the Database](https://guides.rubyonrails.org/getting_started.html#using-a-model-to-interact-with-the-database)
+
+- use the rails console to play with our models:
+
+```bash
+[views (mvc-and-you)]$ rails c
+Running via Spring preloader in process 85912
+Loading development environment (Rails 6.1.2.1)
+>> article = Article.new(title: "Hello Rails", body: "I am on Rails!")
+   (0.4ms)  SELECT sqlite_version(*)
+=> #<Article id: nil, title: "Hello Rails", body: "I am on Rails!", created_at: nil, updated_at: nil>
+>> article.save
+  TRANSACTION (0.1ms)  begin transaction
+  Article Create (3.0ms)  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2021-02-11 22:36:52.545193"], ["updated_at", "2021-02-11 22:36:52.545193"]]
+  TRANSACTION (18.3ms)  commit transaction
+=> true
+>> 
+```
+
+You learn more [Active Record Basics] and [Active Record Query Interface]
+
+### [5.4 Showing a List of Articles](https://guides.rubyonrails.org/getting_started.html#showing-a-list-of-articles)
+
+- [Change the index action](app/controllers/articles_controller.rb) by adding `@articles = Article.all`
+- [use the instance variable in the view](app/views/articles/index.html.erb)
+
+```ruby
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+    </li>
+  <% end %>
+</ul>
+```
+
+`<% %>` = "evaluate the enclosed Ruby code."
+`<%= %>` = "evaluate the enclosed Ruby code, and output the value it returns." 
+
+
+- seven things
+
+1. The browser makes a request: GET http://localhost:3000.
+1. Our Rails application receives this request.
+1. The Rails router maps the root route to the index action of ArticlesController.
+1. The index action uses the Article model to fetch all articles in the database.
+1. Rails automatically renders the app/views/articles/index.html.erb view.
+1. The ERB code in the view is evaluated to output HTML.
+1. The server sends a response containing the HTML back to the browser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -158,3 +245,5 @@ You learn more about [Active Record Migrations]. "Now we can interact with the t
 [Rack website]: https://rack.github.io/
 [routing]: https://guides.rubyonrails.org/routing.html
 [Active Record Migrations]: https://guides.rubyonrails.org/active_record_migrations.html
+[Active Record Basics]: https://guides.rubyonrails.org/active_record_basics.html
+[Active Record Query Interface]: https://guides.rubyonrails.org/active_record_querying.html
