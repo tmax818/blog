@@ -182,8 +182,8 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 </ul>
 ```
 
-`<% %>` = "evaluate the enclosed Ruby code."
-`<%= %>` = "evaluate the enclosed Ruby code, and output the value it returns." 
+- `<% %>` = "evaluate the enclosed Ruby code."
+- `<%= %>` = "evaluate the enclosed Ruby code, and output the value it returns." 
 
 
 - seven things
