@@ -199,9 +199,22 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 
 ## [6 CRUDit Where CRUDit Is Due](https://guides.rubyonrails.org/getting_started.html#crudit-where-crudit-is-due)
 
+- Almost all web apps involve CRUD!!
 
+### [6.1 Showing a Single Article](https://guides.rubyonrails.org/getting_started.html#showing-a-single-article)
 
+- [add a new route](config/routes.rb)
+- [add the show action](app/controllers/articles_controller.rb)
 
+```ruby
+  def show
+    @article = Article.find(params[:id])
+  end
+  ```
+- [add the view](app/views/articles/show.html.erb)
+- [test](http://localhost:3000/articles/1)
+- [add links to index](app/views/articles/index.html.erb)
+- [test](http://localhost:3000/articles/)
 
 
 
