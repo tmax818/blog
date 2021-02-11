@@ -52,6 +52,7 @@ $ rails new .
 |---|---|
 |[`app/`](app/notes.md)|Contains the controllers, models, views, helpers, mailers, channels, jobs, and assets for your application. You'll focus on this folder for the remainder of this guide.|
 |[`bin/`](bin/notes.md)|Contains the rails script that starts your app and can contain other scripts you use to set up, update, deploy, or run your application.|
+|[`config/`](config/notes.md)|Contains configuration for your application's routes, database, and more. This is covered in more detail in [Configuring Rails Applications].|
 |[`README.md`](.)|This is a brief instruction manual for your application. You should edit this file to tell others what your application does, how to set it up, and so on.|
 
 
@@ -64,6 +65,6 @@ $ rails new .
 [Sqlite3]: https://www.sqlite.org/
 [Node.js]: https://nodejs.org/en/download/
 [Yarn]: https://classic.yarnpkg.com/en/docs/install
-
+[Configuring Rails Applications]:https://guides.rubyonrails.org/configuring.html
 
 
