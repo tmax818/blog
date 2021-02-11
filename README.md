@@ -53,22 +53,6 @@ $ rails new .
 
 
 
-
-
-
-
-
-
-
-## FootNotes
-
-[generator]: scripts that are designed to make your development life easier by creating everything that's necessary to start working on a particular task.
-
-
-
-
-
-
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
 [Ruby]: https://www.ruby-lang.org/en/documentation/installation/
