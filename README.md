@@ -100,6 +100,51 @@ $ rails generate controller Articles index --skip-routes
 
 - learn more about [routing]
 
+## [5 MVC and You](https://guides.rubyonrails.org/getting_started.html#mvc-and-you)
+
+- MVC - "a design pattern that divides the responsibilities of an application to make it easier to reason about."
+
+
+### [5.1 Generating a Model](https://guides.rubyonrails.org/getting_started.html#mvc-and-you-generating-a-model)
+
+- model - "a Ruby class that is used to represent data."
+
+```bash
+R rails g[enerate[] model Article title:string body:text
+```
+
+>Model names are singular, because an instantiated model represents a single data record. To help remember this convention, think of how you would call the model's constructor: we want to write `Article.new(...)`, not `Articles.new(...)`.
+
+- Two files we focus on
+  - [migration](db/migrate/20210211222316_create_articles.rb)
+  - [model](app/models/article.rb)
+
+
+### [5.2 Database Migrations](https://guides.rubyonrails.org/getting_started.html#database-migrations)
+
+- migrations:
+
+>*Migrations* are used to alter the structure of an application's database. In Rails applications, migrations are written in Ruby so that they can be database-agnostic.
+
+- check out [migration](db/migrate/20210211222316_create_articles.rb)
+
+- run the migration with:
+
+```bash
+$ rails db:migrate
+```
+- we get this cool shit!
+```
+==  CreateArticles: migrating ===================================
+-- create_table(:articles)
+   -> 0.0018s
+==  CreateArticles: migrated (0.0018s) ==========================
+```
+
+You learn more about [Active Record Migrations]. "Now we can interact with the table using our model."
+
+
+
 
 
 
@@ -112,3 +157,4 @@ $ rails generate controller Articles index --skip-routes
 [Configuring Rails Applications]: https://guides.rubyonrails.org/configuring.html
 [Rack website]: https://rack.github.io/
 [routing]: https://guides.rubyonrails.org/routing.html
+[Active Record Migrations]: https://guides.rubyonrails.org/active_record_migrations.html
