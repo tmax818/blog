@@ -260,6 +260,7 @@ link_to(name = nil, options = nil, html_options = nil, &block)
  ```
 Nice!
 
+You learn more: [routing]
 
 
 
@@ -299,3 +300,4 @@ Nice!
 [Active Record Query Interface]: https://guides.rubyonrails.org/active_record_querying.html
 [resources]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources
 [link_to]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to
+[routing]: https://guides.rubyonrails.org/routing.html
