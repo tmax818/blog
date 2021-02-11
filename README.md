@@ -39,6 +39,35 @@ These are my notes for the [Rails Guides](https://guides.rubyonrails.org/index.h
   - [Node.js]
   - [Yarn]
 
+### [3.2 Creating the Blog Application](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application)
+
+- [generators]
+- since I already have this file as a repo I will run this command:
+
+```bash
+$ rails new .
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## FootNotes
+
+[generator]: scripts that are designed to make your development life easier by creating everything that's necessary to start working on a particular task.
+
+
+
+
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
@@ -46,3 +75,6 @@ These are my notes for the [Rails Guides](https://guides.rubyonrails.org/index.h
 [Sqlite3]: https://www.sqlite.org/
 [Node.js]: https://nodejs.org/en/download/
 [Yarn]: https://classic.yarnpkg.com/en/docs/install
+
+
+
