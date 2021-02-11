@@ -51,7 +51,8 @@ $ rails new .
 |File/Folder|Purpose|
 |---|---|
 |[`app/`](app/notes.md)|Contains the controllers, models, views, helpers, mailers, channels, jobs, and assets for your application. You'll focus on this folder for the remainder of this guide.|
-|`README.md`|This is a brief instruction manual for your application. You should edit this file to tell others what your application does, how to set it up, and so on.|
+|[`bin/`](bin/notes.md)|Contains the rails script that starts your app and can contain other scripts you use to set up, update, deploy, or run your application.|
+|[`README.md`](.)|This is a brief instruction manual for your application. You should edit this file to tell others what your application does, how to set it up, and so on.|
 
 
 

@@ -1,0 +1,1 @@
+Contains the rails script that starts your app and can contain other scripts you use to set up, update, deploy, or run your application.
