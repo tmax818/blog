@@ -29,6 +29,20 @@ These are my notes for the [Rails Guides](https://guides.rubyonrails.org/index.h
 
 ## [3 Creating a New Rails Project](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project)
 
+- follow step by step
+
+### [3.1 Installing Rails](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails)
+
+- Prerequisites:
+  - [Ruby]
+  - [Sqlite3]
+  - [Node.js]
+  - [Yarn]
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
+[Ruby]: https://www.ruby-lang.org/en/documentation/installation/
+[Sqlite3]: https://www.sqlite.org/
+[Node.js]: https://nodejs.org/en/download/
+[Yarn]: https://classic.yarnpkg.com/en/docs/install
