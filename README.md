@@ -216,16 +216,35 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 - [add links to index](app/views/articles/index.html.erb)
 - [test](http://localhost:3000/articles/)
 
+### [6.2 Resourceful Routing](https://guides.rubyonrails.org/getting_started.html#resourceful-routing)
 
+>Whenever we have a combination of routes, controller actions, and views that work together to perform CRUD operations on an entity, we call that entity a **resource**. For example, in our application, we would say an article is a resource. Rails provides a routes *method* named [resources] that maps all of the conventional routes for a collection of resources, such as articles. 
 
+- [replace the get routes](config/routes.rb)
 
+```bash
+[blog (CRUDit)]$ rails routes
+      Prefix Verb   URI Pattern                       Controller#Action
+        root GET    /                                 articles#index
+    articles GET    /articles(.:format)               articles#index
+             POST   /articles(.:format)               articles#create
+ new_article GET    /articles/new(.:format)           articles#new
+edit_article GET    /articles/:id/edit(.:format)      articles#edit
+     article GET    /articles/:id(.:format)           articles#show
+             PATCH  /articles/:id(.:format)           articles#update
+             PUT    /articles/:id(.:format)           articles#update
+             DELETE /articles/:id(.:format)           articles#destroy
+```
 
+>The [resources] method also sets up URL and path helper methods that we can use to keep our code from depending on a specific route configuration. The values in the "Prefix" column above plus a suffix of `_url` or `_path` form the names of these helpers. For example, the `article_path` helper returns `"/articles/#{article.id}"` when given an article. We can use it to tidy up our links in [index](app/views/articles/index.html.erb):
 
+change:
 
-
-
-
-
+```ruby
+"/articles/<%= article.id %>"
+to 
+"<%= article_path(article) %>"
+```
 
 
 
@@ -263,3 +282,4 @@ You learn more [Active Record Basics] and [Active Record Query Interface]
 [Active Record Migrations]: https://guides.rubyonrails.org/active_record_migrations.html
 [Active Record Basics]: https://guides.rubyonrails.org/active_record_basics.html
 [Active Record Query Interface]: https://guides.rubyonrails.org/active_record_querying.html
+[resources]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources
