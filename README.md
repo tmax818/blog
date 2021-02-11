@@ -246,6 +246,21 @@ to
 "<%= article_path(article) %>"
 ```
 
+>However, we will take this one step further by using the [link_to] helper. The `link_to` helper renders a link with its **first argument** as the link's text and its **second argument** as the link's destination. If we pass a model object as the **second argument**, `link_to` will call the appropriate path helper to convert the object to a path. For example, if we pass an article, `link_to` will call article_path. So [index](app/views/articles/index.html.erb) becomes:
+
+
+```ruby
+link_to(name = nil, options = nil, html_options = nil, &block)
+```
+
+```ruby
+# <a href="<%= article_path(article) %>">
+# <%= article.title %> becomes:
+ <%= link_to article.title, article %>
+ ```
+Nice!
+
+
 
 
 
@@ -283,3 +298,4 @@ to
 [Active Record Basics]: https://guides.rubyonrails.org/active_record_basics.html
 [Active Record Query Interface]: https://guides.rubyonrails.org/active_record_querying.html
 [resources]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources
+[link_to]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to
