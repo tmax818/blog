@@ -300,6 +300,9 @@ In a Rails application, these steps are conventionally handled by a controller's
 
 >[redirect_to] will cause the browser to make a new request, whereas [render] renders the specified view for the current request. **It is important to use [redirect_to] after mutating the database or application state.** Otherwise, if the user refreshes the page, the browser will make the same request, and the mutation will be repeated.
 
+[redirect_to] - causes the browser to make a new request
+[render] - renders the view 
+
 #### [6.3.1 Using a Form Builder](https://guides.rubyonrails.org/getting_started.html#using-a-form-builder)
 
 - [create the new form using *form builder*](app/views/articles/new.html.erb)
@@ -314,6 +317,123 @@ You learn more: [Action View Form Helpers]
 >Submitted form data is put into the params Hash, alongside captured route parameters.
 
 You learn more: [Action Controller Overview § Strong Parameters]
+
+#### [6.3.3 Validations and Displaying Error Messages](https://guides.rubyonrails.org/getting_started.html#validations-and-displaying-error-messages)
+
+- [add validations](app/models/article.rb)
+- [modify](app/views/articles/new.html.erb)
+
+>The [full_messages_for] method returns an array of user-friendly error messages for a specified attribute. If there are no errors for that attribute, the array will be empty.
+
+You learn more: [Active Record Validations](https://guides.rubyonrails.org/active_record_validations.html)
+
+#### [6.3.4 Finishing Up](https://guides.rubyonrails.org/getting_started.html#creating-a-new-article-finishing-up)
+
+- [link from the index page](app/views/articles/index.html.erb)
+
+### [6.4 **Updating(U)** an Article](https://guides.rubyonrails.org/getting_started.html#updating-an-article)
+
+- Updating
+  1. user requests a form to edit the data. Then, 
+  2. the user submits the form. 
+  3. If there are no errors, then the resource is updated. 
+  4. Else, the form is redisplayed with error messages, and the process is repeated.
+
+- [add `edit` and `update` actions](app/controllers/articles_controller.rb)
+
+```ruby
+  def edit
+    @article = Article.find(params[:id])
+  end
+```
+- `edit` fetches resource from database
+
+```ruby
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
+    end
+  end
+```
+
+- `update` action (re-)fetches the article from the database, and attempts to update it with the submitted form data filtered by article_params. If no validations fail and the update is successful, the action redirects the browser to the article's page. Else, the action re-displays the form, with error messages, by rendering app/views/articles/edit.html.erb.
+
+#### [6.4.1 Using Partials to Share View Code](https://guides.rubyonrails.org/getting_started.html#using-partials-to-share-view-code)
+
+- The new and update forms are the same. Be DRY, use a partial!
+- create a partial with:
+
+```bash
+$ touch app/views/articles/_form.html.erb
+```
+- [paste the form in the partial](app/views/articles/_form.html.erb)
+- But, checkout the difference between the two forms
+
+```ruby
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+```
+- Old form:
+
+```ruby
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+        <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+        <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+```
+
+- Update both with [render]:
+  - [new](app/views/articles/new.html.erb)
+  - [edit](app/views/articles/edit.html.erb)
+ 
+You learn more [ Layouts and Rendering in Rails § Using Partials](https://guides.rubyonrails.org/layouts_and_rendering.html#using-partials)
+
+
+#### [6.4.2 Finishing Up](https://guides.rubyonrails.org/getting_started.html#updating-an-article-finishing-up)
+
+- [link to `edit` from `show`](app/views/articles/show.html.erb)
 
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
@@ -338,3 +458,4 @@ You learn more: [Action Controller Overview § Strong Parameters]
 [text_field]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field
 [Action View Form Helpers]: https://guides.rubyonrails.org/form_helpers.html
 [Action Controller Overview § Strong Parameters]: https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
+[full_messages_for]: https://api.rubyonrails.org/v6.1.2.1/classes/ActiveModel/Errors.html#method-i-full_messages_for
