@@ -313,6 +313,8 @@ You learn more: [Action View Form Helpers]
 
 >Submitted form data is put into the params Hash, alongside captured route parameters.
 
+You learn more: [Action Controller Overview § Strong Parameters]
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
@@ -335,3 +337,4 @@ You learn more: [Action View Form Helpers]
 [label]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormBuilder.html#method-i-label
 [text_field]: https://api.rubyonrails.org/v6.1.2.1/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field
 [Action View Form Helpers]: https://guides.rubyonrails.org/form_helpers.html
+[Action Controller Overview § Strong Parameters]: https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
