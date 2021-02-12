@@ -435,6 +435,42 @@ You learn more [ Layouts and Rendering in Rails § Using Partials](https://guide
 
 - [link to `edit` from `show`](app/views/articles/show.html.erb)
 
+### [6.5 Deleting an Article](https://guides.rubyonrails.org/getting_started.html#deleting-an-article)
+
+>Deleting a resource is a simpler process than creating or updating. It only requires a route and a controller action.
+
+- [route](config/routes.rb) is already there with the [resources] method.
+- [add the controller action0](app/controllers/articles_controller.rb)
+
+```ruby
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path
+  end
+```
+>The destroy action fetches the article from the database, and calls [destroy] on it. Then, it redirects the browser to the root path.
+
+- [add it to the show](app/views/articles/show.html.erb)
+
+```ruby
+link_to "Destroy", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }
+```
+In the above code, we're passing a few additional options to [link_to]. The `method: :delete` option causes the link to make a `DELETE` request instead of a `GET` request. The `data: { confirm: "Are you sure?" }` option causes a confirmation dialog to appear when the link is clicked. If the user cancels the dialog, the request is aborted. Both of these options are powered by a feature of Rails called **Unobtrusive JavaScript (UJS)**. The JavaScript file that implements these behaviors is included by default in fresh Rails applications.
+
+You learn more [Working With JavaScript in Rails]
+
+
+
+
+
+
+
+
+
+
+
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
 [List of Free Programming Books]: https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books.md#ruby
@@ -459,3 +495,5 @@ You learn more [ Layouts and Rendering in Rails § Using Partials](https://guide
 [Action View Form Helpers]: https://guides.rubyonrails.org/form_helpers.html
 [Action Controller Overview § Strong Parameters]: https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
 [full_messages_for]: https://api.rubyonrails.org/v6.1.2.1/classes/ActiveModel/Errors.html#method-i-full_messages_for
+[destroy]: https://api.rubyonrails.org/v6.1.2.1/classes/ActiveRecord/Persistence.html#method-i-destroy
+[Working With JavaScript in Rails]: https://guides.rubyonrails.org/working_with_javascript_in_rails.html
