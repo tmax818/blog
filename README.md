@@ -462,7 +462,7 @@ In the above code, we're passing a few additional options to [link_to]. The `met
 You learn more [Working With JavaScript in Rails]
 
 
-
+## [7 Adding a Second Model](https://guides.rubyonrails.org/getting_started.html#adding-a-second-model)
 
 
 
