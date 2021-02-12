@@ -300,18 +300,18 @@ In a Rails application, these steps are conventionally handled by a controller's
 
 >[redirect_to] will cause the browser to make a new request, whereas [render] renders the specified view for the current request. **It is important to use [redirect_to] after mutating the database or application state.** Otherwise, if the user refreshes the page, the browser will make the same request, and the mutation will be repeated.
 
+#### [6.3.1 Using a Form Builder](https://guides.rubyonrails.org/getting_started.html#using-a-form-builder)
 
 - [create the new form using *form builder*](app/views/articles/new.html.erb)
-
-
 - [form_with]
 - [label]
 - [text_field]
 
 You learn more: [Action View Form Helpers]
 
+#### [6.3.2 Using Strong Parameters](https://guides.rubyonrails.org/getting_started.html#using-strong-parameters)
 
-
+>Submitted form data is put into the params Hash, alongside captured route parameters.
 
 
 [Official Ruby Programming Language website]: https://www.ruby-lang.org/en/documentation/
