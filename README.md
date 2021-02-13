@@ -464,6 +464,38 @@ You learn more [Working With JavaScript in Rails]
 
 ## [7 Adding a Second Model](https://guides.rubyonrails.org/getting_started.html#adding-a-second-model)
 
+>It's time to add a second model to the application. The second model will handle comments on articles.
+
+```bash
+$ bin/rails generate model Comment commenter:string body:text article:references
+
+```
+This creates 4 files:
+1. [migration](db/migrate/20210213060524_create_comments.rb)
+2. [model](app/models/comment.rb)
+3. [test](test/models/comment_test.rb)
+4. [test fixtures](test/fixtures/comments.yml)
+
+>You'll need to edit [the article model](app/models/article.rb) to add the other side of the association
+
+You learn more [Active Record Associations]
+
+### [7.3 Adding a Route for Comments](https://guides.rubyonrails.org/getting_started.html#adding-a-route-for-comments)
+
+- [add a route](config/routes.rb)
+
+You learn more [routing]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -497,3 +529,4 @@ You learn more [Working With JavaScript in Rails]
 [full_messages_for]: https://api.rubyonrails.org/v6.1.2.1/classes/ActiveModel/Errors.html#method-i-full_messages_for
 [destroy]: https://api.rubyonrails.org/v6.1.2.1/classes/ActiveRecord/Persistence.html#method-i-destroy
 [Working With JavaScript in Rails]: https://guides.rubyonrails.org/working_with_javascript_in_rails.html
+[Active Record Associations]: https://guides.rubyonrails.org/association_basics.html
