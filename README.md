@@ -466,10 +466,13 @@ You learn more [Working With JavaScript in Rails]
 
 >It's time to add a second model to the application. The second model will handle comments on articles.
 
+### [7.1  Generating a Model](https://guides.rubyonrails.org/getting_started.html#adding-a-second-model-generating-a-model)
+
 ```bash
 $ bin/rails generate model Comment commenter:string body:text article:references
 
 ```
+
 This creates 4 files:
 1. [migration](db/migrate/20210213060524_create_comments.rb)
 2. [model](app/models/comment.rb)
@@ -486,13 +489,23 @@ You learn more [Active Record Associations]
 
 You learn more [routing]
 
+### [7.4 Generating a Controller](https://guides.rubyonrails.org/getting_started.html#generating-a-controller)
 
+```bash
+$ rails g[enerate] controller Comments
+```
 
+- created 4 files:
+  - [controller](app/controllers/comments_controller.rb)
+  - [view](app/views/comments)
+  - [helper](app/helpers/comments_helper.rb)
+  - [tests](test/controllers/comments_controller_test.rb)
 
+- [update show](app/views/articles/show.html.erb)
 
+- [make the `create` action](app/controllers/comments_controller.rb):
 
-
-
+- [update show](app/views/articles/show.html.erb)
 
 
 
