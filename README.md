@@ -507,8 +507,9 @@ $ rails g[enerate] controller Comments
 
 - [update show](app/views/articles/show.html.erb)
 
+## [8 Refactoring](https://guides.rubyonrails.org/getting_started.html#refactoring)
 
-
+- [clean up the articles#show](app/views/articles/show.html.erb)
 
 
 
